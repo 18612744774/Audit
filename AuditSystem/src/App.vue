@@ -1,13 +1,38 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+  <el-menu
+		  :default-active="activeIndex2"
+		  class="el-menu-demo"
+		  mode="horizontal"
+		  @select="handleSelect"
+		  background-color="#545c64"
+		  text-color="#fff"
+		  active-text-color="#ffd04b">
+		  <img src="../build/logo.png" style="width: 2%;position: absolute;left: 50px;" alt="" />
+		  <el-menu-item index="1" style="margin-left: 100px;"><router-link to="HelloWorld">内容审核</router-link></el-menu-item>
+		  <el-menu-item index="2"> <router-link to="ContentAudit">数据监控</router-link></el-menu-item>
+		  <el-menu-item index="3"><router-link to="account">账号管理</router-link></el-menu-item>
+		  <el-menu-item index="4" style="position: absolute;right: 0;"><router-link to="login">账号：admin</router-link></el-menu-item>
+		</el-menu>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+   data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+  
 }
 </script>
 
@@ -18,6 +43,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 0;
+  margin: 0;
 }
+a{
+	text-decoration: none;
+}
+
 </style>
