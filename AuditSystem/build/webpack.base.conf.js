@@ -9,17 +9,6 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -44,11 +33,11 @@ new webpack.ProvidePlugin({
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'css': resolve('src/assets/css'),
     }
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -82,7 +71,11 @@ new webpack.ProvidePlugin({
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+        {  //从这一段上面是默认的！不用改！下面是没有的需要你手动添加，相当于是编译识别sass!
+            test: /\.scss$/,
+            loaders: ["style", "css", "sass"]
+        }
     ]
   },
   node: {
