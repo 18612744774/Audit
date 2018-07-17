@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import ContentAudit from '@/components/ContentAudit'
 import login from '@/components/login'
 import account from '@/components/account'
+import find from '@/components/find'
+import keyWord from '@/components/keyWord'
 
 Vue.use(Router)
 
@@ -12,12 +14,36 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      children: [ 
+	　　　{
+	      path: 'find',
+	      name: 'find',
+	      component: find
+	    },
+	　　　{
+	      path: 'keyWord',
+	      name: 'keyWord',
+	      component: keyWord
+	    }
+	　　]
     },
     {
       path: '/HelloWorld',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      children: [ 
+	　　　{
+	      path: 'find',
+	      name: 'find',
+	      component: find
+	    },
+	　　　{
+	      path: 'keyWord',
+	      name: 'keyWord',
+	      component: keyWord
+	    }
+	　　]
     },
     {
       path: '/ContentAudit',
