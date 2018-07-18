@@ -9,9 +9,9 @@
 		  text-color="#fff"
 		  active-text-color="#409eff">
 		  <img src="../build/logo.png" style="width: 2%;position: absolute;left: 50px;" alt="" />
-		  <el-menu-item index="1" style="margin-left: 100px;"><router-link to="find">内容审核</router-link></el-menu-item>
-		  <el-menu-item index="2"> <router-link to="ContentAudit">数据监控</router-link></el-menu-item>
-		  <el-menu-item index="3"><router-link to="account">账号管理</router-link></el-menu-item>
+		  <el-menu-item index="1" style="margin-left: 100px;"><router-link to="/home/find">内容审核</router-link></el-menu-item>
+		  <el-menu-item index="2"> <router-link to="/ContentAudit">数据监控</router-link></el-menu-item>
+		  <el-menu-item index="3"><router-link to="/account">账号管理</router-link></el-menu-item>
 		  <el-menu-item index="4" style="position: absolute;right: 0;"><router-link to="login">账号：admin</router-link></el-menu-item>
 		</el-menu>
     <router-view/>
