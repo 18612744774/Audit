@@ -1,42 +1,40 @@
 <template>
-  <div id="app">
-  <el-menu
-		  :default-active="activeIndex2"
-		  class="el-menu-demo"
-		  mode="horizontal"
-		  @select="handleSelect"
-		  background-color="#545c64"
-		  text-color="#fff"
-		  active-text-color="#409eff">
-		  <img src="../build/logo.png" style="width: 2%;position: absolute;left: 50px;" alt="" />
-		  <el-menu-item index="1" style="margin-left: 100px;"><router-link to="/home/find">内容审核</router-link></el-menu-item>
-		  <el-menu-item index="2"> <router-link to="/ContentAudit">数据监控</router-link></el-menu-item>
-		  <el-menu-item index="3"><router-link to="/account">账号管理</router-link></el-menu-item>
-		  <el-menu-item index="4" style="position: absolute;right: 0;"><router-link to="login">账号：admin</router-link></el-menu-item>
-		</el-menu>
-    <router-view/>
-  </div>
+  <!--<div class="main">
+  	<ul style="justify-content: space-between;display: flex;">
+  		<li style="margin-left: 41px; line-height: 62px;"><img src="./assets/img/logo.png" alt="" /></li>
+  		<li style="display: flex;margin-right: 41px; line-height: 62px;">
+  			<div>
+  				<img src="./assets/img/admin.png" alt="" />
+  			</div>
+  			<div>
+  				<ul>
+  				  <li style="margin-left: 8px;line-height: 45px;">admin</li>
+  				  <li style="line-height: 1px;margin-left: 13px;"><router-link to="/home/login">退出</router-link> </li>
+  				</ul>
+  			</div>
+  		</li>
+  	</ul>
+  	<router-view></router-view>
+  </div>-->
+   <div id="app">
+        <router-view/>
+    </div>
+  
 </template>
-
 <script>
 export default {
   name: 'App',
    data() {
       return {
-        activeIndex: '1',
-        activeIndex2: '1'
       };
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
     }
   
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -53,6 +51,12 @@ a{
 body{
 	padding: 0;
 	margin: 0;
+}
+.main{
+width:100%;
+height:63px;
+background:rgba(255,255,255,1);
+box-shadow:0px 1px 0px 0px rgba(222,230,240,1);
 }
 
 </style>

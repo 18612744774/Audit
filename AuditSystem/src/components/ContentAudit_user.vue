@@ -1,6 +1,6 @@
 <template>
 	<div>
-		数据监控
+		用户
 	</div>
 </template>
 

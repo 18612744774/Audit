@@ -5,15 +5,14 @@
 		    	<div class="main">
 		    		<ul>
 		    			<li class="main_left">关键词：</li>
-		    			<li><el-input maxlength="20"  placeholder="请输入搜索内容"  class="find_input" clearable></el-input></li>
+		    			<li><el-input maxlength="20"  @keyup.enter.native="submit" placeholder="请输入搜索内容"  class="find_input" clearable></el-input></li>
 		    		</ul>
 		    		<!--v-model="input"-->
 		    		<ul>
 		    			<li class="main_left">类别：</li>
-		    			<li class="typeList">
-		    				<button>行业名词</button>
-		    				<button>货币</button>
-		    				<button>交易所</button>
+		    			<li class="typeList" v-for="(item,index) in buttonList" >
+		    				<button @click="greet(index)" :class="{click_cur:index == tabIndex}">{{item.name}}</button>
+		    				
 		    			</li>
 		    		</ul>
 		    		<ul style="border: 0;">
@@ -44,7 +43,7 @@
 						</el-table-column>
 						<el-table-column  label="操作" :formatter="formatter" :span="6">
 							  <template slot-scope="scope">
-						        <el-button @click="handleClick(scope.row)" type="text" size="small">解禁</el-button>
+						        <el-button @click="handleClick(scope.row)" type="text" size="small">开启</el-button>
 						      </template>
 						</el-table-column>
 					</el-table>
@@ -71,7 +70,7 @@
 		    		<!--v-model="input"-->
 		    		<ul>
 		    			<li class="main_left">类别：</li>
-		    			<li class="typeList">
+		    			<li class="typeList" >
 		    				<button>行业名词</button>
 		    				<button>货币</button>
 		    				<button>交易所</button>
@@ -138,6 +137,12 @@
         currentPage2: 5,
         currentPage3: 5,
         currentPage4: 4,
+        tabIndex:0,
+        buttonList:[
+        {name:"行业名词"},
+        {name:"货币"},
+        {name:"交易所"}
+        ],
           tableData: [{
           date: '2016-05-02',
           name: '王小虎',
@@ -180,6 +185,13 @@
       },
       handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
+      },
+      greet(index){
+      	 this.tabIndex = index;
+      },
+//    搜索
+      submit(){
+      	console.log($(".find_input input").val())
       }
     }
   };
@@ -221,5 +233,9 @@
 	.typeList{
 		line-height: 55px;
     	margin-left: 27px;
+	}
+	.click_cur{
+		background: #409eff !important;
+    	color: white;
 	}
 </style>

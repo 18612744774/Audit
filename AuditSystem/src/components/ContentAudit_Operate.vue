@@ -1,6 +1,6 @@
 <template>
 	<div>
-		账号管理
+		运营
 	</div>
 </template>
 
