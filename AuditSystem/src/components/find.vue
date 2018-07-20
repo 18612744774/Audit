@@ -142,6 +142,7 @@ export default {
 </script>
 <style scoped lang="scss" type="text/scss">
 .find {
+  margin-top: 40px;
   padding: 10px;
   .alert {
     margin: 10px;
