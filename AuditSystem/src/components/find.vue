@@ -95,140 +95,141 @@
 </template>
 
 <script>
-    export default {
-        name : "find",
-        data() {
-            return {
-                alert_info : "更新时间：2018-07-11 10:00:00  更新100条",
-                alert_warning : "50条资讯未审核！",
-                search : "",
-                options2 : [
-                    {
-                        value : "选项1",
-                        label : "黄金糕"
-                    },
-                    {
-                        value : "选项2",
-                        label : "双皮奶"
-                    },
-                    {
-                        value : "选项3",
-                        label : "蚵仔煎"
-                    },
-                    {
-                        value : "选项4",
-                        label : "龙须面"
-                    },
-                    {
-                        value : "选项5",
-                        label : "北京烤鸭"
-                    }
-                ],
-                value2 : "",
-                checked : false,
-                currentPage1 : 1,
-                dialogVisible : false
-            };
+export default {
+  name: "find",
+  data() {
+    return {
+      alert_info: "更新时间：2018-07-11 10:00:00  更新100条",
+      alert_warning: "50条资讯未审核！",
+      search: "",
+      options2: [
+        {
+          value: "选项1",
+          label: "黄金糕"
         },
-        methods : {
-            handleCurrentChange(val) {
-                console.log(`当前页: ${val}`);
-            },
-            showInfo(id) {
-                this.dialogVisible = true;
-            }
+        {
+          value: "选项2",
+          label: "双皮奶"
+        },
+        {
+          value: "选项3",
+          label: "蚵仔煎"
+        },
+        {
+          value: "选项4",
+          label: "龙须面"
+        },
+        {
+          value: "选项5",
+          label: "北京烤鸭"
         }
+      ],
+      value2: "",
+      checked: false,
+      currentPage1: 1,
+      dialogVisible: false
     };
+  },
+  methods: {
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
+    showInfo(id) {
+      this.dialogVisible = true;
+    }
+  }
+};
 </script>
 <style scoped lang="scss" type="text/scss">
-    .find{
-        padding:10px;
-        .alert{
-            margin:10px;
-        }
-        .search{
-            width:50%;
-            margin:20px auto;
-        }
-        .filters{
-            background:#e8e8e8;
-            padding:10px;
-            display:flex;
-            .title{
-                line-height:40px;
-                margin:0 10px;
-            }
-            .content{
-                display:flex;
-                .item-select{
-                    width:200px;
-                    margin:0 10px;
-                }
-                .item-checkbox{
-                    width:100px;
-                    margin:0 10px;
-                    line-height:40px;
-                }
-            }
-        }
-        .results{
-            margin-top:10px;
-            > .title{
-                padding:10px;
-                display:flex;
-                background:#e8e8e8;
-                .left{
-                    width:100%;
-                    text-align:left;
-                }
-                .right{
-                    line-height:40px;
-                    width:200px;
-                }
-            }
-            .content{
-                margin-top:10px;
-                .top{
-                    .item{
-                        border:1px solid #e8e8e8;
-                        padding:10px;
-                        margin:10px 0;
-                        cursor:pointer;
-                        .title{
-                            text-align:left;
-                            .mainTitle{
-                                font-size:18px;
-                                font-weight:bold;
-                            }
-                            .subTitle{
-                                color:#b1b1b1;
-                                margin-left:10px;
-                            }
-                        }
-                        .info{
-                            padding:10px;
-                            text-align:left;
-                            line-height:1.5;
-                        }
-                        .tags{
-                            text-align:right;
-                            margin-right:10px;
-                            .tag{
-                                background:#e8e8e8;
-                                display:inline-block;
-                                padding:5px;
-                                margin:0 5px;
-                            }
-                        }
-                    }
-                    .item.active{
-                        background-color:#67c23a6b;
-                    }
-                }
-                .bottom{
-                    margin-top:10px;
-                }
-            }
-        }
+.find {
+	margin-top: 40px;
+  padding: 10px;
+  .alert {
+    margin: 10px;
+  }
+  .search {
+    width: 50%;
+    margin: 20px auto;
+  }
+  .filters {
+    background: #e8e8e8;
+    padding: 10px;
+    display: flex;
+    .title {
+      line-height: 40px;
+      margin: 0 10px;
     }
+    .content {
+      display: flex;
+      .item-select {
+        width: 200px;
+        margin: 0 10px;
+      }
+      .item-checkbox {
+        width: 100px;
+        margin: 0 10px;
+        line-height: 40px;
+      }
+    }
+  }
+  .results {
+    margin-top: 10px;
+    > .title {
+      padding: 10px;
+      display: flex;
+      background: #e8e8e8;
+      .left {
+        width: 100%;
+        text-align: left;
+      }
+      .right {
+        line-height: 40px;
+        width: 200px;
+      }
+    }
+    .content {
+      margin-top: 10px;
+      .top {
+        .item {
+          border: 1px solid #e8e8e8;
+          padding: 10px;
+          margin: 10px 0;
+          cursor: pointer;
+          .title {
+            text-align: left;
+            .mainTitle {
+              font-size: 18px;
+              font-weight: bold;
+            }
+            .subTitle {
+              color: #b1b1b1;
+              margin-left: 10px;
+            }
+          }
+          .info {
+            padding: 10px;
+            text-align: left;
+            line-height: 1.5;
+          }
+          .tags {
+            text-align: right;
+            margin-right: 10px;
+            .tag {
+              background: #e8e8e8;
+              display: inline-block;
+              padding: 5px;
+              margin: 0 5px;
+            }
+          }
+        }
+        .item.active {
+          background-color: #67c23a6b;
+        }
+      }
+      .bottom {
+        margin-top: 10px;
+      }
+    }
+  }
+}
 </style>
