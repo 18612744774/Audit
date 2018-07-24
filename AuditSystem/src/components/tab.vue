@@ -4,7 +4,7 @@
 		<div class="content" >
 			<el-row class="tac">
 				<el-col :span="4">
-					<el-menu style="width: 200px;" default-active="2" class="el-menu-vertical-demo"   router="" background-color="#20335d" text-color="#fff">
+					<el-menu style="width: 200px;" :default-active=tabK class="el-menu-vertical-demo"   router="" background-color="#20335d" text-color="#fff">
 						<el-submenu index="1" style="text-align: left;" @open="handleOpen" @close="handleClose">
 							<template slot="title" >
 								<i class="el-icon-location"></i>
@@ -12,7 +12,7 @@
 							</template>
 							<el-menu-item-group>
 								<el-menu-item @click="addressa" style="text-align: left;" index="/home/tab/find"><img style="margin: 0px 7px;" src="../assets/img/find.png" alt="" />查询审核</el-menu-item>
-								<el-menu-item @click="addressb"style="text-align: left;" index="/home/tab/keyWord"><img style="margin: 0px 7px;" src="../assets/img/sign.png" alt="" />关键词设置</el-menu-item>
+								<el-menu-item @click="addressb"style="text-align: left;" index="/home/tab/keyWord/keyWord_Disable"><img style="margin: 0px 7px;" src="../assets/img/sign.png" alt="" />关键词设置</el-menu-item>
 							</el-menu-item-group>
 						</el-submenu>
 						<el-submenu index="2" style="text-align: left;">
@@ -49,8 +49,17 @@
 		  data() {
       return {
         routerLitter:null,
-        findAdress:true
+        findAdress:true,
+         tabK:null
       };
+    },
+    mounted(){
+    	this.tabK=sessionStorage.getItem("router")
+    	if(this.tabK==null){
+    		this.tabK="/home/tab/find"
+    	}
+    	
+    	console.log(this.tabK)
     },
   methods: {
     handleOpen(key, keyPath) {
@@ -62,22 +71,33 @@
     addressa(){
     	this.routerLitter="查询审核";
     	this.findAdress=false;
+    	this.tabK="/home/tab/find";
+    	sessionStorage.setItem("router",this.tabK)
     },
     addressb(){
     	this.routerLitter="关键词设置";
     	this.findAdress=false;
+    	this.tabK="/home/tab/keyWord/keyWord_Disable";
+    	sessionStorage.setItem("router",this.tabK)
+    	sessionStorage.setItem("keyRouter","/home/tab/keyWord/keyWord_Disable")
     },
     addressc(){
     	this.routerLitter="运营指标监控";
     	this.findAdress=false;
+    	this.tabK="/home/tab/ContentAudit_Operate";
+    	sessionStorage.setItem("router",this.tabK)
     },
     addressd(){
     	this.routerLitter="产品功能分析";
     	this.findAdress=false;
+    	this.tabK="/home/tab/ContentAudit_product";
+    	sessionStorage.setItem("router",this.tabK)
     },
     addresse(){
     	this.routerLitter="用户信息查询";
     	this.findAdress=false;
+    	this.tabK="/home/tab/ContentAudit_user";
+    	sessionStorage.setItem("router",this.tabK);
     }
   }
 };

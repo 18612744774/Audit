@@ -8,6 +8,9 @@ import login from '@/components/login'
 import find from '@/components/find'
 import keyWord from '@/components/keyWord'
 import tab from '@/components/tab'
+import keyWord_Crawl from '@/components/keyWord_Crawl'
+import keyWord_Disable from '@/components/keyWord_Disable'
+import keyWord_Sensitive from '@/components/keyWord_Sensitive'
 
 Vue.use(Router)
 
@@ -30,7 +33,24 @@ export default new Router({
 	      	{
 			      path: 'keyWord',
 			      name: 'keyWord',
-			      component: keyWord
+			      component: keyWord,
+			      children:[
+			      {
+			      	 path: 'keyWord_Crawl',
+			         name: 'keyWord_Crawl',
+			         component: keyWord_Crawl
+			      },
+			      {
+			      	 path: 'keyWord_Disable',
+			         name: 'keyWord_Disable',
+			         component: keyWord_Disable
+			      },
+			      {
+			      	 path: 'keyWord_Sensitive',
+			         name: 'keyWord_Sensitive',
+			         component: keyWord_Sensitive
+			      }
+			      ]
 			   },
 	      	{
 			      path: 'find',
@@ -52,6 +72,7 @@ export default new Router({
 		      name: 'ContentAudit_user',
 		      component: ContentAudit_user
 		    }
+		    
 	      	
 	      ]
         },
